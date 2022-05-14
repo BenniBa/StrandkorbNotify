@@ -2,7 +2,7 @@ name: py
     
     on:
       schedule:
-        - cron: "0 0 * * *" #runs at 00:00 UTC everyday
+        - cron: "*/5 * * * *" #runs every 5 minutes
     
     jobs:
       build:
@@ -18,7 +18,7 @@ name: py
           - name: execute py script # run the run.py to get the latest data
             run: |
               python main.py
-            env:
-              key: ${{ secrets.key }} # if run.py requires passwords..etc, set it as secrets
+            if: 
+              
           - name: export index
             .... # use crosponding script or actions to help export.
